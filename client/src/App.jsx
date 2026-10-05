@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import HomePage from './pages/HomePage.jsx';
 import UploadPage from './pages/UploadPage.jsx';
 import DropPage from './pages/DropPage.jsx';
@@ -21,6 +21,7 @@ import { isStill, useTheme } from './theme.js';
 import { useT } from './locale.js';
 import { isStandalone, useOnline } from './pwa.js';
 import { setConsent, useConsent } from './consent.js';
+import useNavDrag from './useNavDrag.js';
 
 const TOKEN_RE = /^[A-Za-z0-9_-]{43}$/;
 
@@ -61,6 +62,9 @@ export default function App() {
   const consent = useConsent();
   const [site, siteUnlocked] = useSiteGate();
   const standalone = isStandalone();
+  const navRef = useRef(null);
+  // Dragging the current section sideways switches sections: installed app only, not in the Simple/Accessible themes.
+  useNavDrag(navRef, standalone && !isStill(theme));
   const logoSrc = theme === 'dark' ? '/icons/logo-white.png' : '/icons/logo-black.png';
   const blocked = !isStandalone() && consent === 'declined' && isTransferPath(path);
   const showConsent = !isStandalone() && consent !== 'accepted';
@@ -120,7 +124,7 @@ export default function App() {
             <img className="logo-mark" src={logoSrc} width="44" height="44" alt="" />
             <span className="logo-text">e2e-drop</span>
           </Link>
-          <nav className="nav" aria-label={t.home}>
+          <nav ref={navRef} className="nav" aria-label={t.home}>
             {!standalone && (
               <Link to="/home" className={`nav-home${path === '/home' ? ' active' : ''}`}>
                 <Icon name="home" size={20} />

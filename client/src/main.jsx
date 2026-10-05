@@ -9,10 +9,8 @@ import '@fontsource/roboto/700.css';
 import App from './App.jsx';
 import { registerServiceWorker } from './pwa.js';
 import './styles.css';
-import { startTilt } from './tilt.js';
 
 registerServiceWorker();
-startTilt();
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

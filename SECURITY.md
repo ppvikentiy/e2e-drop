@@ -118,9 +118,7 @@ Formal edition of 5 October 2026.
 
 8.9. `localStorage`, key `vd-font`: the value `dyslexia` when the Andika typeface is enabled, or no record. It is not sent to the server. It does not depend on the selected appearance.
 
-8.10. The device orientation sensor is used only in the installed application on a touch screen, and only for the sheen effect on interface elements. Its readings are processed in the browser, are not stored anywhere, and are not sent to the server. If the system asks for permission to use the sensor and it is refused, the value `1` remains in `sessionStorage` under the key `vd-tilt-denied` until the tab is closed. The effect is not applied in the Simple and Accessible themes, or when reduced motion is set in the system.
-
-8.11. `localStorage`, key `vd-site`: the last known answer of the server about the site access password (clause 7.7), `open`, `ok`, or `locked`. The password itself is not stored. The value lets the installed application decide, without a network, whether to open QR transfer.
+8.10. `localStorage`, key `vd-site`: the last known answer of the server about the site access password (clause 7.7), `open`, `ok`, or `locked`. The password itself is not stored. The value lets the installed application decide, without a network, whether to open QR transfer.
 
 ## 9. QR transfer without a network
 

@@ -3499,62 +3499,6 @@ a.feature-card:hover {
 }
 
 
-/* ---------- sheen: highlights that follow how the device is tilted (see tilt.js) ---------- */
-:root {
-  --tilt-x: 0;
-  --tilt-y: 0;
-  --sheen: rgba(255, 255, 255, 0.14);
-  --sheen-strong: rgba(255, 255, 255, 0.26);
-}
-
-[data-theme='light'] {
-  --sheen: rgba(255, 255, 255, 0.4);
-  --sheen-strong: rgba(255, 255, 255, 0.3);
-}
-
-.dropzone::after,
-.window::after {
-  content: var(--sheen-content, none);
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      120% 140% at calc(50% + var(--tilt-x) * 55%) calc(50% + var(--tilt-y) * 55%),
-      var(--sheen-strong),
-      transparent 55%
-    ),
-    linear-gradient(
-      calc(115deg + var(--tilt-x) * 25deg),
-      transparent calc(42% + var(--tilt-x) * 18%),
-      var(--sheen) calc(50% + var(--tilt-x) * 18%),
-      transparent calc(58% + var(--tilt-x) * 18%)
-    );
-}
-
-.window::after,
-.dropzone::after {
-  opacity: 0.45;
-}
-
-/* Only in the installed app on a touch device: not on a computer, not in a browser tab. */
-.app-pwa {
-  --sheen-content: '';
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .app-pwa {
-    --sheen-content: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .app-pwa {
-    --sheen-content: none;
-  }
-}
-
 /* ---------- installed app (PWA): a bigger bottom bar, settings button in the same glass ---------- */
 @media (max-width: 1280px) {
   .app-pwa {
@@ -3625,19 +3569,6 @@ html[data-theme='lite'] {
   scroll-behavior: auto !important;
 }
 
-[data-theme='lite'] .btn::after,
-[data-theme='lite'] .settings-btn::after,
-[data-theme='lite'] .nav::after,
-[data-theme='lite'] .nav a::after,
-[data-theme='lite'] .chip::after,
-[data-theme='lite'] .dropzone::after,
-[data-theme='lite'] .theme-option::after,
-[data-theme='lite'] .window::after,
-[data-theme='lite'] .spot::after,
-[data-theme='lite'] .window::before {
-  content: none;
-}
-
 [data-theme='lite'] .prompt,
 [data-theme='lite'] .window-prompt,
 [data-theme='lite'] .cursor,
@@ -3673,31 +3604,7 @@ html[data-theme='lite'] {
   border-radius: 14px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .btn::after,
-  .settings-btn::after,
-  .nav::after,
-  .nav a::after,
-  .chip::after,
-  .dropzone::after,
-  .theme-option::after,
-  .window::after {
-    content: none;
-  }
-}
-
-/* ---------- Accessible theme (simple): no sheen; bigger PWA bar in plain colours ---------- */
-[data-theme='simple'] .btn::after,
-[data-theme='simple'] .settings-btn::after,
-[data-theme='simple'] .nav::after,
-[data-theme='simple'] .nav a::after,
-[data-theme='simple'] .chip::after,
-[data-theme='simple'] .dropzone::after,
-[data-theme='simple'] .theme-option::after,
-[data-theme='simple'] .window::after {
-  content: none;
-}
-
+/* ---------- Accessible theme (simple): bigger PWA bar in plain colours ---------- */
 @media (max-width: 1280px) {
   [data-theme='simple'] .app-pwa .nav {
     min-height: 80px;
@@ -3710,5 +3617,24 @@ html[data-theme='lite'] {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+  }
+}
+
+/* ---------- installed app: drag the current section sideways to switch (see useNavDrag.js) ---------- */
+@media (max-width: 1280px) {
+  [data-theme='dark'] .app-pwa .nav a.active,
+  [data-theme='light'] .app-pwa .nav a.active {
+    touch-action: none;
+  }
+  .app-pwa .nav.dragging a {
+    transition: background 0.12s, color 0.12s;
+  }
+  .app-pwa .nav.dragging a.active:not(.drag-target) {
+    color: var(--on-surface-variant);
+    background: transparent;
+  }
+  .app-pwa .nav.dragging a.drag-target {
+    color: var(--on-primary);
+    background: var(--primary);
   }
 }
