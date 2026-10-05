@@ -1,0 +1,26 @@
+E2E QR Drop (vqd)
+Copyright 2026 The E2E QR Drop authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Roles and responsibility
+------------------------
+The authors publish the source code and do not provide a public service.
+Public instances are deployed by third parties at their own responsibility.
+
+The authors do not operate, host, or moderate any instance of this software and
+have no access to the data of any instance. Whoever deploys an instance is solely
+responsible for it, including the infrastructure, who may use it, the content
+transferred through it, and compliance with the law that applies to them.
+
+The authors are not responsible for instances deployed by third parties. This
+software is provided "AS IS", without warranties or conditions of any kind, as
+set out in sections 7 and 8 of the Apache License, Version 2.0.
+
+Распределение ролей и ответственность
+-------------------------------------
+Авторы публикуют исходный код и не предоставляют публичный сервис. Публичные
+экземпляры разворачиваются третьими лицами на их собственную ответственность.
+Авторы не несут ответственности за экземпляры, развёрнутые третьими лицами.
+Программное обеспечение предоставляется «как есть», без каких-либо гарантий
+(разделы 7 и 8 лицензии Apache 2.0).

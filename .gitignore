@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+client/build-info.json
+
+# Secrets and local configuration.
+# server/.env.example stays tracked: it does not match these names.
+.env
+.env.local
+.env.*.local
+deploy/deploy.settings.json
+deploy.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+

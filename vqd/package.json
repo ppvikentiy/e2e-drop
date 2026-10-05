@@ -1,0 +1,27 @@
+{
+  "name": "vqd",
+  "version": "0.1.0",
+  "description": "E2E QR Drop: a one-way, fountain-coded file transfer format for animated QR streams (screen to camera, no network).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "bench:overhead": "node bench/overhead.js",
+    "bench:large": "node bench/large.js"
+  },
+  "files": [
+    "src",
+    "SPEC.md",
+    "SPEC-RU.md",
+    "README.md",
+    "README-RU.md",
+    "LICENSE"
+  ]
+}

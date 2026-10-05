@@ -1,0 +1,18 @@
+# Private, self-hosted instance: nothing here is for search engines or other crawlers.
+# Messenger link-preview bots may read the page to show a card for a pasted link.
+User-agent: TelegramBot
+User-agent: facebookexternalhit
+User-agent: Facebot
+User-agent: Twitterbot
+User-agent: WhatsApp
+User-agent: vkShare
+User-agent: Discordbot
+User-agent: Slackbot
+User-agent: Slackbot-LinkExpanding
+User-agent: LinkedInBot
+User-agent: Viber
+User-agent: OdklBot
+Allow: /
+
+User-agent: *
+Disallow: /
